@@ -65,3 +65,4 @@ repeated = [1, 2] * 3  # [1, 2, 1, 2, 1, 2]
 # Nested Lists
 nested = [[1, 2], [3, 4], [5, 6]]
 flattened = [item for sublist in nested for item in sublist]  # [1, 2, 3, 4, 5, 6]
+print(len(nested))
