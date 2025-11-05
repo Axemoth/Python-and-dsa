@@ -18,6 +18,16 @@ prefix = ""
                 break
         return prefix
 '''
+'''zip(*["flower", "flow", "flight"])
+→ gives an iterator over:
+
+arduino
+Copy code
+('f', 'f', 'f')
+('l', 'l', 'l')
+('o', 'o', 'i')
+('w', 'w', 'g')
+'''
 
 sol = Solution()
 print(sol.Longest_pre(["flower", "flow", "flight"]))
