@@ -1,5 +1,6 @@
 import pandas as pd
 import os
+import matplotlib.pyplot as plt
 
 def analyze_sales():
     # 1. Load the Data (Using safe path joining)
@@ -39,5 +40,34 @@ def analyze_sales():
     print(product_stats)
     print("-" * 40)
 
+    # ---------------- MONTHLY SALES CHART ----------------
+    print("Generating chart...")
+
+    # Ensure Date column is DateTime
+    df['Date'] = pd.to_datetime(df['Date'])
+
+    # Group by month
+    monthly_sales = df.groupby(df['Date'].dt.to_period('M'))['Total_Price'].sum()
+
+    # Plot chart
+    plt.figure(figsize=(10, 6))
+    monthly_sales.plot(kind='line', marker='o', linewidth=2)
+
+    plt.title('Monthly Sales Trend')
+    plt.xlabel('Month')
+    plt.ylabel('Revenue ($)')
+    plt.grid(True)
+    plt.tight_layout()
+
+    # Save chart
+    chart_path = os.path.join(current_folder, "sales_chart.png")
+    plt.savefig(chart_path)
+    print(f"✅ Chart saved at: {chart_path}")
+    
+
+    # Close figure
+    plt.close()
+
+# Run the function
 if __name__ == "__main__":
     analyze_sales()
