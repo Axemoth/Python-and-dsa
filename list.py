@@ -6,6 +6,7 @@ list_from_range = list(range(10))
 # List Adding/Appending
 my_list.append(6)  # Adds 6 to the end
 my_list.extend([7, 8, 9])  # Extends with another list
+print(my_list)  # [1, 2, 3, 4, 5, 6, 7, 8, 9]
 my_list.insert(0, 0)  # Inserts 0 at index 0
 
 # List Slicing
@@ -18,6 +19,7 @@ reversed_list = my_list[::-1]  # [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
 # List Comprehension
 squares = [x**2 for x in range(10)]  # [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 even_squares = [x**2 for x in range(10) if x % 2 == 0]  # [0, 4, 16, 36, 64]
+print(even_squares)
 nested_comprehension = [[i*j for j in range(3)] for i in range(3)]  # [[0, 0, 0], [0, 1, 2], [0, 2, 4]]
 
 # List Removing
